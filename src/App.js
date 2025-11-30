@@ -20,7 +20,7 @@ const VectorCourseLanding = () => {
   // Анимация
   const [showPainPoints, setShowPainPoints] = useState(false);
 
-  // --- ТАЙМЕРДІ ӨЗГЕРТТІМ (25 МИНУТ) ---
+  // --- ТАЙМЕР (25 МИНУТ) ---
   const [timeLeft, setTimeLeft] = useState(25 * 60); 
 
   const [formData, setFormData] = useState({
@@ -32,12 +32,40 @@ const VectorCourseLanding = () => {
 
   const whatsappNumber = "77755851203"; 
 
-  // --- OQUWSHYLAR RESULTATY ---
+  // --- OQUWSHYLAR RESULTATY (ҚАЗАҚ БАЛАЛАРЫНЫҢ ФОТОЛАРЫМЕН) ---
   const fakeResults = [
-    { name: "Айғаным Б.", score: "50/50", uni: "SDU", color: "bg-blue-100 text-blue-700" },
-    { name: "Ерасыл К.", score: "45/50", uni: "KBTU", color: "bg-green-100 text-green-700" },
-    { name: "Нұрай А.", score: "48/50", uni: "ENU", color: "bg-purple-100 text-purple-700" },
-    { name: "Бекзат Т.", score: "49/50", uni: "KazNU", color: "bg-orange-100 text-orange-700" },
+    { 
+      name: "Айғаным Б.", 
+      score: "50/50", 
+      uni: "SDU", 
+      color: "bg-blue-100 text-blue-700",
+      // Қазақ қызы (оқушы)
+      image: "https://images.unsplash.com/photo-1554151228-14d9def656ec?w=150&h=150&fit=crop&crop=faces&q=80"
+    },
+    { 
+      name: "Ерасыл К.", 
+      score: "45/50", 
+      uni: "KBTU", 
+      color: "bg-green-100 text-green-700",
+      // Азиялық жігіт (оқушы)
+      image: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=150&h=150&fit=crop&crop=faces&q=80"
+    },
+    { 
+      name: "Нұрай А.", 
+      score: "48/50", 
+      uni: "ENU", 
+      color: "bg-purple-100 text-purple-700",
+      // Студент қыз
+      image: "https://images.unsplash.com/photo-1628890916696-56e848888d73?w=150&h=150&fit=crop&crop=faces&q=80"
+    },
+    { 
+      name: "Бекзат Т.", 
+      score: "49/50", 
+      uni: "KazNU", 
+      color: "bg-orange-100 text-orange-700",
+      // Жігіт
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=faces&q=80"
+    },
   ];
 
   // --- СҰРАҚТАР ---
@@ -181,7 +209,8 @@ const VectorCourseLanding = () => {
             
             <div className="relative w-64 h-64 mb-6 mt-4">
                <div className="w-full h-full rounded-full border-4 border-emerald-500 p-1 shadow-2xl overflow-hidden">
-                 <img src="https://ibb.co.com/7Ny687Dy" alt="Қазбек ағай" className="w-full h-full object-cover rounded-full"/>
+                 {/* СІЗДІҢ ФОТОҢЫЗ (ЕСКЕРТУ: Direct Link болғаны дұрыс) */}
+                 <img src="https://i.ibb.co.com/Lhp2b4yp/image.png" alt="Қазбек ағай" className="w-full h-full object-cover rounded-full"/>
                </div>
                <div className="absolute bottom-2 right-2 bg-white px-3 py-1 rounded-full shadow-md border border-gray-100 flex items-center gap-1">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
@@ -328,14 +357,20 @@ const VectorCourseLanding = () => {
                     <div className="text-left mb-8">
                         <h3 className="font-bold text-lg uppercase mb-4 pl-2 border-l-4 border-emerald-500">Оқушылар нәтижесі</h3>
                         <div className="flex overflow-x-auto gap-4 pb-4 no-scrollbar">
+                            {/* ФОТОЛАРМЕН ЖАҢАРТЫЛҒАН КАРТОЧКАЛАР */}
                             {fakeResults.map((student, i) => (
                                 <div key={i} className="min-w-[160px] bg-white border border-gray-100 shadow-xl rounded-2xl p-4 flex flex-col items-center justify-center relative overflow-hidden">
                                     <div className="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div>
-                                    <Award className="text-yellow-400 mb-2" size={24} />
-                                    <h4 className="font-bold text-gray-800">{student.name}</h4>
-                                    <p className={`text-xs font-bold px-2 py-0.5 rounded mt-1 ${student.color}`}>{student.uni}</p>
-                                    <p className="text-2xl font-black text-emerald-600 mt-2">{student.score}</p>
-                                    <p className="text-[10px] text-gray-400">ҰБТ тесті</p>
+                                    
+                                    {/* АВАТАР ФОТОСЫ */}
+                                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-emerald-100 mb-2">
+                                        <img src={student.image} alt={student.name} className="w-full h-full object-cover" />
+                                    </div>
+
+                                    <h4 className="font-bold text-gray-800 text-sm">{student.name}</h4>
+                                    <p className={`text-[10px] font-bold px-2 py-0.5 rounded mt-1 ${student.color}`}>{student.uni}</p>
+                                    <p className="text-xl font-black text-emerald-600 mt-1">{student.score}</p>
+                                    <p className="text-[10px] text-gray-400">Вектор тесті</p>
                                 </div>
                             ))}
                         </div>
@@ -379,7 +414,7 @@ const VectorCourseLanding = () => {
               {/* СЫЙЛЫҚТАР ТІЗІМІ */}
               <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-6 text-white shadow-2xl relative overflow-hidden mb-6">
                  <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500 rounded-full blur-3xl opacity-20"></div>
-                 <h3 className="font-bold text-lg mb-4 border-b border-gray-700 pb-2">🎁 СЕНІҢ СЫЙЛЫҚТАРЫҢ:</h3>
+                 <h3 className="font-bold text-lg mb-4 border-b border-gray-700 pb-2">🎁 СЕН:</h3>
                  <ul className="space-y-4 relative z-10">
                     
                     {/* 15% ЖЕҢІЛДІК */}
@@ -405,7 +440,7 @@ const VectorCourseLanding = () => {
                  </ul>
               </div>
 
-              {/* WHATSAPP (СЫЙЛЫҚ СҰРАУ) */}
+              {/* WHATSAPP */}
               <a 
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Сәлем Қазбек ағай! Менің атым ${formData.name}. Вектор сабағын өттім (Тест: ${score}/5). Мен 15% жеңілдік пен сыйлықтарды (Жоспар, Формула, Талдау) алғым келеді!`)}`}
                 target="_blank"

@@ -181,7 +181,7 @@ const VectorCourseLanding = () => {
             
             <div className="relative w-64 h-64 mb-6 mt-4">
                <div className="w-full h-full rounded-full border-4 border-emerald-500 p-1 shadow-2xl overflow-hidden">
-                 <img src="/api/placeholder/400/400" alt="Қазбек ағай" className="w-full h-full object-cover rounded-full"/>
+                 <img src="https://ibb.co.com/7Ny687Dy" alt="Қазбек ағай" className="w-full h-full object-cover rounded-full"/>
                </div>
                <div className="absolute bottom-2 right-2 bg-white px-3 py-1 rounded-full shadow-md border border-gray-100 flex items-center gap-1">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
